@@ -55,16 +55,11 @@ public final class FileInputQueryFactory
 	private final IWindowFactory m_windowFactory;
 	private final URI m_base;
 	
-	public FileInputQueryFactory(WindowManager windowManager, IWindowFactory windowFactory, @Nullable URI base)
+	public FileInputQueryFactory(WindowManager windowManager, IWindowFactory windowFactory, URI base)
 	{
 		m_windowManager = windowManager;
 		m_windowFactory = windowFactory;
 		m_base = base;
-	}
-	
-	public FileInputQueryFactory(WindowManager windowManager, IWindowFactory windowFactory)
-	{
-		this(windowManager, windowFactory, null);
 	}
 	
 	public FileInputQuery create(FileInputQueryMode mode, String query, URI defaultValue) throws WindowConstructionException
@@ -158,7 +153,7 @@ public final class FileInputQueryFactory
 			final TextArea txtValue = getControl(TextArea.class, "txtValue");
 			
 			getControl(Label.class, "lblQuery").setText(m_query);
-			txtValue.setText(m_defaultValue.toString());
+			txtValue.setText(m_base.relativize(m_defaultValue).toString());
 			
 			getControl(Button.class, "btnOkay").getObservers().add(new IButtonPressObserver() {
 				@Override
@@ -203,7 +198,7 @@ public final class FileInputQueryFactory
 							@Override
 							public void run()
 							{
-								JFileChooser c = new JFileChooser(new File(m_defaultValue));
+								JFileChooser c = new JFileChooser(m_defaultValue.isAbsolute() ? new File(m_defaultValue) : new File(new File(m_base), m_defaultValue.toString()));
 								
 								int result = 0;
 								
@@ -224,7 +219,7 @@ public final class FileInputQueryFactory
 								}
 								
 								if(result == JFileChooser.APPROVE_OPTION)
-									txtValue.setText(c.getSelectedFile().toURI().toString());
+									txtValue.setText(m_base.relativize(c.getSelectedFile().toURI()).toString());
 							}
 						});
 					} catch (InvocationTargetException | InterruptedException e)
