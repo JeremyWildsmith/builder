@@ -170,7 +170,7 @@ public final class FileInputQueryFactory
 						if(path.isAbsolute())
 							displayMessage("Cannot relativize the specified path. Assure it is a child of this project's base directory.");
 						else
-							m_observers.raise(IFileInputQueryObserver.class).okay(path);
+							m_observers.raise(IFileInputQueryObserver.class).okay(URI.create("/").resolve(path));
 					} else
 						m_observers.raise(IFileInputQueryObserver.class).okay(path);
 					} catch (URISyntaxException e)
@@ -219,7 +219,7 @@ public final class FileInputQueryFactory
 								}
 								
 								if(result == JFileChooser.APPROVE_OPTION)
-									txtValue.setText(m_base.relativize(c.getSelectedFile().toURI()).toString());
+									txtValue.setText(URI.create("/").resolve(m_base.relativize(c.getSelectedFile().toURI())).toString());
 							}
 						});
 					} catch (InvocationTargetException | InterruptedException e)
