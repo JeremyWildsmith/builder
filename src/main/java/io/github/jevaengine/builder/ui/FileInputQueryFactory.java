@@ -33,17 +33,13 @@ import io.github.jevaengine.ui.Window;
 import io.github.jevaengine.ui.WindowBehaviourInjector;
 import io.github.jevaengine.ui.WindowManager;
 import io.github.jevaengine.util.IObserverRegistry;
-import io.github.jevaengine.util.Nullable;
 import io.github.jevaengine.util.Observers;
-
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.net.URI;
 import java.net.URISyntaxException;
-
 import javax.swing.JFileChooser;
 import javax.swing.SwingUtilities;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

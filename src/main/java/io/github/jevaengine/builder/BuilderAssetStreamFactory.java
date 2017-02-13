@@ -19,7 +19,6 @@
 package io.github.jevaengine.builder;
 
 import io.github.jevaengine.IAssetStreamFactory;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

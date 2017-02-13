@@ -31,7 +31,6 @@ import io.github.jevaengine.ui.WindowBehaviourInjector;
 import io.github.jevaengine.ui.WindowManager;
 import io.github.jevaengine.util.IObserverRegistry;
 import io.github.jevaengine.util.Observers;
-
 import java.net.URI;
 
 public final class MessageBoxFactory

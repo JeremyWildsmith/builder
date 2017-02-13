@@ -18,8 +18,6 @@
  */
 package io.github.jevaengine.builder.ui;
 
-import java.net.URI;
-
 import io.github.jevaengine.IDisposable;
 import io.github.jevaengine.math.Vector2D;
 import io.github.jevaengine.ui.IWindowFactory;
@@ -29,6 +27,7 @@ import io.github.jevaengine.ui.NoSuchControlException;
 import io.github.jevaengine.ui.ValueGuage;
 import io.github.jevaengine.ui.Window;
 import io.github.jevaengine.ui.WindowManager;
+import java.net.URI;
 
 public class StatusDialogueFactory
 {
