@@ -95,6 +95,10 @@ public final class TextInputQueryFactory
 		{
 			return m_observers;
 		}
+
+		public void setTopMost(boolean b) {
+			m_window.setTopMost(b);
+		}
 	}
 	
 	private class TextInputQueryBehaviourInjector extends WindowBehaviourInjector
