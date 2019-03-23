@@ -106,6 +106,10 @@ public final class FileInputQueryFactory
 		{
 			return m_observers;
 		}
+
+		public void setTopMost(boolean b) {
+			m_window.setTopMost(b);
+		}
 	}
 	
 	private class FileInputQueryBehaviourInjector extends WindowBehaviourInjector
