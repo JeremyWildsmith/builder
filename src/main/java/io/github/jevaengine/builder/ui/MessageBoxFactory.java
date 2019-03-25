@@ -87,6 +87,10 @@ public final class MessageBoxFactory
 		{
 			return m_observers;
 		}
+
+		public void setTopMost(boolean b) {
+			m_window.setTopMost(b);
+		}
 	}
 	
 	public interface IMessageBoxObserver
